@@ -1,0 +1,912 @@
+
+/* =========================================
+   01. BASE
+========================================= */
+
+:root {
+    --navy: #050d18;
+    --white: #f4f7fb;
+    --muted: #a8b7c8;
+    --cyan: #64d8ff;
+    --line: rgba(157, 195, 220, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+
+    
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow: hidden;
+
+    
+}
+
+/* =========================================
+   02. TELA PRINCIPAL
+========================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+/* =========================================
+   03. IMAGEM DE FUNDO
+========================================= */
+
+
+.hero__image {
+    position: absolute;
+    z-index: -4;
+    inset: 0;
+
+    background-image: url("img/inicio.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.08);
+    animation: image-enter 1.8s ease-out forwards;
+}
+
+
+.hero__shade {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 13, 24, 0.98) 0%,
+            rgba(5, 13, 24, 0.93) 24%,
+            rgba(5, 13, 24, 0.72) 44%,
+            rgba(5, 13, 24, 0.18) 76%,
+            rgba(5, 13, 24, 0.30) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5, 13, 24, 0.68) 0%,
+            transparent 35%,
+            rgba(5, 13, 24, 0.16) 100%
+        );
+}
+
+/* =========================================
+   04. GRADE TECNOLÓGICA
+========================================= */
+
+.hero__grid {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(151, 201, 230, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(151, 201, 230, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 82px 82px;
+
+    mask-image: linear-gradient(
+        90deg,
+        black,
+        transparent 90%
+    );
+
+    opacity: 0.55;
+}
+
+.hero__glow {
+    position: absolute;
+    z-index: -1;
+
+    width: 48vw;
+    height: 48vw;
+    max-width: 760px;
+    max-height: 760px;
+
+    right: -12%;
+    top: 12%;
+
+    border-radius: 50%;
+    background: rgba(26, 127, 190, 0.09);
+    filter: blur(100px);
+
+    pointer-events: none;
+    animation: glow-breathe 8s ease-in-out infinite alternate;
+}
+
+/* =========================================
+   05. LINHA SUPERIOR
+========================================= */
+
+.top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(115, 192, 226, 0.13);
+}
+
+.top-line span {
+    display: block;
+    width: 28%;
+    height: 100%;
+    background: var(--cyan);
+    box-shadow: 0 0 14px rgba(100, 216, 255, 0.45);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    animation: line-enter 1.2s 0.3s ease forwards;
+}
+
+/* =========================================
+   06. CABEÇALHO E MARCA
+========================================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 85px;
+    padding: 28px 6.2%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 20;
+
+    animation: fade-down 1s 0.2s both;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    text-decoration: none;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.brand__symbol {
+    font-family: 'Manrope', sans-serif;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.brand__symbol span {
+    color: var(--cyan);
+}
+
+.brand__name {
+    margin-top: 7px;
+    padding-left: 2px;
+
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 4.8px;
+    color: #bdcbd9;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 12px rgba(100, 216, 255, 0.8);
+}
+
+.header__label,
+.header__year {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.header__label {
+    color: #d5e0eb;
+}
+
+.header__year {
+    padding-left: 11px;
+    border-left: 1px solid var(--line);
+    color: var(--cyan);
+}
+
+/* =========================================
+   07. BOTÕES DE NAVEGAÇÃO
+========================================= */
+
+.page-navigation {
+    position: absolute;
+    top: 50px;
+    right: 6.2%;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Formato dos botões */
+
+.page-navigation .page-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-width: 118px;
+    height: 42px;
+    padding: 0 15px;
+
+    border: 1px solid rgba(100, 216, 255, 0.4);
+    border-radius: 7px;
+
+    background: rgba(5, 18, 32, 0.96);
+    color: #f4f7fb;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Setas */
+
+.page-navigation .page-arrow {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 17px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+/* Efeito ao passar o mouse */
+
+.page-navigation a.page-button:hover {
+    background: #12344b;
+    border-color: var(--cyan);
+    color: #ffffff;
+
+    box-shadow:
+        0 0 18px rgba(100, 216, 255, 0.13),
+        0 5px 18px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(-2px);
+}
+
+.page-navigation .page-button--next:hover .page-arrow {
+    transform: translateX(3px);
+}
+
+/* Botão anterior desativado na primeira página */
+
+.page-navigation .page-button--disabled {
+    opacity: 0.45;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Número da página atual */
+
+.page-navigation .page-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--cyan);
+    border-radius: 7px;
+
+    background: rgba(13, 40, 58, 0.98);
+    color: var(--cyan);
+
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 0 15px rgba(100, 216, 255, 0.08),
+        inset 0 0 12px rgba(100, 216, 255, 0.05);
+}
+
+/* =========================================
+   08. TÍTULO PRINCIPAL
+========================================= */
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 11.5%;
+
+    width: min(70%, 900px);
+
+    transform: translateY(-43%);
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 26px;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.4px;
+    color: var(--cyan);
+
+    opacity: 0;
+    animation: reveal-up 0.9s 0.45s ease forwards;
+}
+
+.eyebrow__line {
+    width: 31px;
+    height: 1px;
+    background: var(--cyan);
+}
+
+.title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(54px, 7.5vw, 108px);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -5.8px;
+
+    color: var(--white);
+
+    opacity: 0;
+    animation: reveal-up 1s 0.65s ease forwards;
+}
+
+.title__second {
+    display: block;
+    color: #a9dff5;
+}
+
+.title__point {
+    color: var(--cyan);
+}
+
+/* =========================================
+   09. DESTINO E DATA
+========================================= */
+
+.destination {
+    margin-top: 31px;
+
+    opacity: 0;
+    animation: reveal-up 0.9s 0.9s ease forwards;
+}
+
+.destination__label {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #8298ac;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.destination__name {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    color: #f1f5f9;
+}
+
+.destination__slash {
+    color: var(--cyan);
+    padding: 0 4px;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 27px;
+
+    opacity: 0;
+    animation: reveal-up 0.9s 1.05s ease forwards;
+}
+
+.date__line {
+    width: 2px;
+    height: 36px;
+    background: var(--cyan);
+    box-shadow: 0 0 10px rgba(100, 216, 255, 0.22);
+}
+
+.date__label {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #8298ac;
+}
+
+.date__value {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    color: #e5edf5;
+}
+
+.date__value span {
+    padding: 0 5px;
+    color: var(--cyan);
+}
+
+/* =========================================
+   10. MARCAÇÕES GRÁFICAS
+========================================= */
+
+.coordinates {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: rgba(208, 226, 241, 0.58);
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    pointer-events: none;
+}
+
+.coordinates--top {
+    top: 50%;
+    right: 5.8%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+
+    animation: fade-in 1.5s 1s both;
+}
+
+.coordinates__divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(100, 216, 255, 0.45);
+}
+
+.coordinates--bottom {
+    bottom: 36px;
+    left: 6.2%;
+
+    animation: fade-in 1s 1.2s both;
+}
+
+.coordinates__cross {
+    color: var(--cyan);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* =========================================
+   11. TRAJETÓRIA VISUAL
+========================================= */
+
+.flight-path {
+    position: absolute;
+    width: min(37vw, 500px);
+    right: 2%;
+    bottom: 8%;
+
+    overflow: visible;
+    pointer-events: none;
+
+    opacity: 0;
+    animation: fade-in 1.8s 1s ease forwards;
+}
+
+.flight-path__base,
+.flight-path__animated {
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.flight-path__base {
+    stroke: rgba(100, 216, 255, 0.18);
+    stroke-dasharray: 3 8;
+}
+
+.flight-path__animated {
+    stroke: rgba(100, 216, 255, 0.75);
+    stroke-width: 1.3;
+    stroke-dasharray: 1 1000;
+    animation: route-draw 3.5s 1.3s ease forwards;
+}
+
+.flight-path circle {
+    fill: var(--cyan);
+    filter: drop-shadow(0 0 5px rgba(100, 216, 255, 0.8));
+}
+
+.flight-path .flight-path__ring {
+    fill: none;
+    stroke: rgba(100, 216, 255, 0.45);
+    stroke-width: 1;
+    animation: ring-pulse 3s 2s infinite;
+}
+
+.light-marker {
+    position: absolute;
+    top: 28%;
+    right: 24%;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background: #b3ecff;
+    box-shadow:
+        0 0 8px 2px rgba(100, 216, 255, 0.4),
+        0 0 25px 5px rgba(100, 216, 255, 0.15);
+
+    animation: marker-pulse 4s ease-in-out infinite;
+}
+
+/* =========================================
+   12. ANIMAÇÕES
+========================================= */
+
+@keyframes image-enter {
+    from {
+        transform: scale(1.08);
+        filter: brightness(0.7);
+    }
+
+    to {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes line-enter {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes glow-breathe {
+    from {
+        opacity: 0.45;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes route-draw {
+    to {
+        stroke-dasharray: 1000 0;
+    }
+}
+
+@keyframes ring-pulse {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(1);
+        transform-origin: 290px 150px;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.35);
+        transform-origin: 290px 150px;
+    }
+}
+
+@keyframes marker-pulse {
+    0%, 100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   13. RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .hero__image {
+        background-position: 60% center;
+    }
+
+    .hero__shade {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 13, 24, 0.96),
+                rgba(5, 13, 24, 0.72)
+            ),
+            linear-gradient(
+                0deg,
+                rgba(5, 13, 24, 0.65),
+                transparent
+            );
+    }
+
+    .header {
+        padding: 25px 6%;
+        min-height: 85px;
+    }
+
+    .content {
+        left: 7%;
+        width: 86%;
+        transform: translateY(-38%);
+    }
+
+    .title {
+        font-size: clamp(48px, 9vw, 74px);
+        letter-spacing: -3px;
+    }
+
+    .coordinates--top {
+        right: 3%;
+    }
+
+    .flight-path {
+        width: 55vw;
+        right: -10%;
+        bottom: 12%;
+        opacity: 0.65;
+    }
+
+    .coordinates--bottom {
+        left: 6%;
+        bottom: 25px;
+    }
+
+    .page-navigation {
+        top: 100px;
+        right: 6%;
+        gap: 6px;
+    }
+
+    .page-navigation .page-button {
+        min-width: 0;
+        height: 36px;
+        padding: 0 10px;
+        gap: 6px;
+        font-size: 9px;
+    }
+
+    .page-navigation .page-number {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* =========================================
+   14. CELULARES
+========================================= */
+
+@media (max-width: 480px) {
+
+    .header {
+        padding: 22px 6%;
+    }
+
+    .brand__symbol {
+        font-size: 26px;
+    }
+
+    .header__label {
+        font-size: 7px;
+        letter-spacing: 0.8px;
+    }
+
+    .header__right {
+        gap: 6px;
+    }
+
+    .header__year {
+        padding-left: 6px;
+        font-size: 7px;
+    }
+
+    .page-navigation {
+        top: 88px;
+        right: 6%;
+        gap: 5px;
+    }
+
+    .page-navigation .page-button {
+        min-width: 0;
+        height: 32px;
+        padding: 0 7px;
+        gap: 4px;
+        font-size: 8px;
+    }
+
+    .page-navigation .page-arrow {
+        font-size: 13px;
+    }
+
+    .page-navigation .page-number {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+    }
+
+    .content {
+        top: 48%;
+        width: 88%;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin-bottom: 22px;
+    }
+
+    .title {
+        font-size: clamp(43px, 11vw, 57px);
+        letter-spacing: -2.5px;
+    }
+
+    .destination {
+        margin-top: 25px;
+    }
+
+    .destination__name {
+        font-size: 15px;
+    }
+
+    .date {
+        margin-top: 24px;
+    }
+
+    .date__value {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .coordinates--top {
+        display: none;
+    }
+
+    .flight-path {
+        width: 72vw;
+        right: -19%;
+        bottom: 10%;
+        opacity: 0.45;
+    }
+
+    .coordinates--bottom {
+        bottom: 20px;
+        font-size: 7px;
+        letter-spacing: 1.4px;
+    }
+}
+
+/* =========================================
+   15. ACESSIBILIDADE
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+

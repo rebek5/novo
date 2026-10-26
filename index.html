@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050D18">
+
+    <title>Planejamento Logístico | D&D Marisco</title>
+
+    <!-- Tipografia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="hero">
+
+        <!-- Fotografia principal -->
+        <div class="hero__image" aria-hidden="true"></div>
+
+        <!-- Camadas visuais -->
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
+
+        <!-- Linha técnica superior -->
+        <div class="top-line" aria-hidden="true">
+            <span></span>
+        </div>
+
+       
+<!-- Cabeçalho -->
+<header class="header">
+    <a class="brand" href="index.html" aria-label="D&D Marisco">
+        <span class="brand__symbol">D<span>&amp;</span>D</span>
+        <span class="brand__name">MARISCO</span>
+    </a>
+
+    <!-- Navegação entre as páginas -->
+   <nav class="page-navigation" aria-label="Navegação entre páginas">
+
+    <a href="#" class="page-button page-button--disabled"
+       aria-disabled="true">
+        <span class="page-arrow">←</span>
+        <span>Anterior</span>
+    </a>
+
+    <span class="page-number">01</span>
+
+    <a href="mapa.html" class="page-button page-button--next">
+        <span>Próxima</span>
+        <span class="page-arrow">→</span>
+    </a>
+
+</nav>
+
+</header>
+
+
+        <!-- Conteúdo da capa -->
+        <section class="content">
+
+            <div class="eyebrow">
+                <span class="eyebrow__line"></span>
+                <span>VISITA TÉCNICA - 2026</span>
+            </div>
+
+            <h1 class="title">
+                Planejamento de viagem
+                <span class="title__second">Corporativa<span class="title__point">.</span></span>
+            </h1>
+
+            <div class="destination">
+                <span class="destination__label">DESTINO</span>
+
+                <p class="destination__name">
+                    Bragança<span class="destination__slash"> / </span>PARÁ
+                </p>
+            </div>
+
+            <div class="date">
+                <span class="date__line"></span>
+
+                <div class="date__content">
+                    <span class="date__label">PERÍODO DA VISITA</span>
+                    <p class="date__value">
+                        23 <span>—</span> 26 NOVEMBRO 2026
+                    </p>
+                </div>
+            </div>
+ 
+        </section>
+
+       
+
+       
+
+        <!-- Trajetória gráfica decorativa -->
+        <svg class="flight-path"
+             viewBox="0 0 500 300"
+             fill="none"
+             aria-hidden="true">
+            <path class="flight-path__base"
+                  d="M 500 35 C 385 45, 410 155, 290 150 S 160 210, 15 270"/>
+
+            <path class="flight-path__animated"
+                  d="M 500 35 C 385 45, 410 155, 290 150 S 160 210, 15 270"/>
+
+            <circle cx="290" cy="150" r="4"/>
+            <circle cx="290" cy="150" r="10" class="flight-path__ring"/>
+        </svg>
+
+        <!-- Marcador luminoso -->
+        <div class="light-marker" aria-hidden="true"></div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logística Aérea | D&D Marisco</title>
+  <link rel="stylesheet" href="mapa.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<main class="slide">
+
+  <nav class="navegacao-paginas" aria-label="Navegação">
+    <a href="index.html" class="botao-navegacao"><span class="seta">←</span> ANTERIOR</a>
+    <span class="numero-pagina">2</span>
+    <a href="hospedagem.html" class="botao-navegacao">PRÓXIMA <span class="seta">→</span></a>
+  </nav>
+
+  <header class="topo">
+    <div>
+      <p class="sobretitulo">D&D MARISCO · VISITA TÉCNICA</p>
+      <h1>LOGÍSTICA <span>AÉREA</span></h1>
+      <p class="subtitulo">Planejamento de deslocamento para Belém — PA</p>
+    </div>
+
+    <div class="destino">
+      <span class="destino-label">DESTINO FINAL</span>
+      <strong>BELÉM <small>PA</small></strong>
+      <span class="destino-aeroporto">Aeroporto Internacional de Belém (BEL)</span>
+    </div>
+  </header>
+
+  <section class="conteudo">
+
+    <!-- MAPA -->
+    <div class="mapa-painel">
+      <div class="painel-cabecalho">
+        <div>
+          <span class="numero-secao">01</span>
+          <h2>MAPA DE ROTAS</h2>
+        </div>
+        <span class="tag">ORIGENS E CONEXÕES</span>
+      </div>
+
+      <div class="mapa">
+        <svg class="rotas" viewBox="0 0 600 650" role="img" aria-label="Mapa esquemático das rotas aéreas no Brasil">
+          <defs>
+            <linearGradient id="mapFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#153654"/>
+              <stop offset="100%" stop-color="#0b2138"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Silhueta esquemática do Brasil -->
+          <path class="brasil" d="M205 48 L255 65 L292 52 L323 79 L364 87 L393 119 L432 131 L455 166 L440 195 L465 227 L450 258 L430 275 L437 313 L415 337 L404 371 L382 394 L366 429 L342 446 L328 483 L298 499 L278 532 L246 520 L225 490 L195 476 L177 444 L152 424 L142 390 L120 364 L128 334 L105 311 L119 278 L103 253 L122 225 L111 194 L135 170 L144 138 L170 120 L175 86 Z"/>
+
+          <!-- Rotas diretas em amarelo -->
+          <path class="rota direta" d="M320 405 Q365 260 405 126"/>
+          <path class="rota direta" d="M390 280 Q410 205 405 126"/>
+
+          <!-- Conexões: origem → GRU → BEL -->
+          <path class="rota conexao" d="M215 340 Q265 365 320 405"/>
+          <path class="rota conexao" d="M260 420 Q290 412 320 405"/>
+          <path class="rota conexao" d="M345 365 Q332 390 320 405"/>
+          <path class="rota conexao" d="M245 465 Q280 430 320 405"/>
+          <path class="rota conexao" d="M320 405 Q365 260 405 126"/>
+
+          <!-- Belém -->
+          <g class="ponto aeroporto-belem" transform="translate(405 126)">
+            <circle r="12"/><circle r="4" class="miolo"/>
+          </g>
+
+          <!-- Guarulhos -->
+          <g class="ponto aeroporto-gru" transform="translate(320 405)">
+            <circle r="10"/><circle r="3.5" class="miolo"/>
+          </g>
+
+          <!-- Chapecó -->
+          <g class="ponto aeroporto-xap" transform="translate(245 465)">
+            <circle r="10"/><circle r="3.5" class="miolo"/>
+          </g>
+
+          <!-- Londrina -->
+          <g class="ponto aeroporto-ldb" transform="translate(215 340)">
+            <circle r="7"/><circle r="2.5" class="miolo"/>
+          </g>
+
+          <!-- Fortaleza -->
+          <g class="ponto aeroporto-for" transform="translate(390 280)">
+            <circle r="7"/><circle r="2.5" class="miolo"/>
+          </g>
+
+          <!-- Santos Dumont -->
+          <g class="ponto aeroporto-sdu" transform="translate(260 420)">
+            <circle r="7"/><circle r="2.5" class="miolo"/>
+          </g>
+
+          <!-- Salgado Filho -->
+          <g class="ponto aeroporto-poa" transform="translate(345 365)">
+            <circle r="7"/><circle r="2.5" class="miolo"/>
+          </g>
+
+          <!-- Identificação -->
+          <text class="rotulo principal" x="420" y="117">BELÉM (BEL)</text>
+          <text class="rotulo" x="332" y="400">GUARULHOS (GRU)</text>
+          <text class="rotulo" x="153" y="486">CHAPECÓ (XAP)</text>
+          <text class="rotulo menor" x="143" y="325">LONDRINA (LDB)</text>
+          <text class="rotulo menor" x="402" y="272">FORTALEZA (FOR)</text>
+          <text class="rotulo menor" x="194" y="412">SANTOS DUMONT (SDU)</text>
+          <text class="rotulo menor" x="355" y="353">SALGADO FILHO (POA)</text>
+          <text class="nota-mapa" x="24" y="605">MAPA ILUSTRATIVO · ROTAS ESQUEMÁTICAS</text>
+        </svg>
+      </div>
+
+      <div class="legenda">
+        <div><span class="linha-legenda direta-linha"></span><span>Voo direto</span></div>
+        <div><span class="linha-legenda conexao-linha"></span><span>Voo com conexão</span></div>
+        <p>Amarelo: GRU → BEL e FOR → BEL. Ciano: LDB, POA, SDU e XAP → GRU → BEL.</p>
+      </div>
+    </div>
+
+    <!-- INFORMAÇÕES DOS VOOS -->
+    <aside class="voos-painel">
+      <div class="painel-cabecalho">
+        <div>
+          <span class="numero-secao">02</span>
+          <h2>INFORMAÇÕES DOS VOOS</h2>
+        </div>
+      </div>
+
+      <!-- DIRETOS -->
+      <section class="grupo-voos diretos">
+        <h3><span class="marcador"></span> VOOS DIRETOS</h3>
+
+        <article class="voo-card">
+          <h4>São Paulo - SP</h4>
+          <p class="aeroporto">Aeroporto Internacional de Guarulhos (GRU)</p>
+
+          <div class="horarios">
+            <div><span>IDA</span><strong>13h30 → 17h00</strong></div>
+            <div><span>VOLTA</span><strong>16h50 → 22h30</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 5.062,00</strong></div>
+          </div>
+
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Neymar Neto</p>
+            <p>Joeslei Cariani Batista</p>
+          </div>
+        </article>
+
+        <article class="voo-card">
+          <h4>Fortaleza - CE</h4>
+          <p class="aeroporto">Aeroporto Internacional de Fortaleza – Pinto Martins (FOR)</p>
+
+          <div class="horarios">
+            <div><span>IDA</span><strong>14h05 → 16h05</strong></div>
+            <div><span>VOLTA</span><strong>17h00 → 22h30</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 1.818,00</strong></div>
+          </div>
+
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Zacarias Batista Goncalves</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- CONEXÕES -->
+      <section class="grupo-voos conexoes">
+        <h3><span class="marcador"></span> VOOS COM CONEXÃO</h3>
+
+        <article class="voo-card conexao-card">
+          <div class="card-topo">
+            <span class="voo-numero">CONEXÃO 01</span>
+            <span class="status">2 TRECHOS</span>
+          </div>
+          <h4>Porto Alegre - RS</h4>
+          <p class="aeroporto">Aeroporto Internacional Salgado Filho (POA)</p>
+          <div class="horarios">
+            <div><span>IDA</span><strong>10h50 → 17h00</strong></div>
+            <div><span>VOLTA</span><strong>16h50 → 23h15</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 5.373,86</strong></div>
+          </div>
+          <div class="trajeto"><span>PORTO ALEGRE</span><b>→</b><span>GUARULHOS</span><b>→</b><span>BELÉM</span></div>
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Nazaré Tedesco</p>
+            <p>Enzo Gael Noah de Luca</p>
+          </div>
+        </article>
+
+        <article class="voo-card conexao-card">
+          <div class="card-topo">
+            <span class="voo-numero">CONEXÃO 02</span>
+            <span class="status">2 TRECHOS</span>
+          </div>
+          <h4>Londrina - PR</h4>
+          <p class="aeroporto">Aeroporto de Londrina – Governador José Richa (LDB)</p>
+          <div class="horarios">
+            <div><span>IDA</span><strong>10h00 → 17h00</strong></div>
+            <div><span>VOLTA</span><strong>17h55 → 23h35</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 4.738,00</strong></div>
+          </div>
+          <div class="trajeto"><span>LONDRINA</span><b>→</b><span>GUARULHOS</span><b>→</b><span>BELÉM</span></div>
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Xim-Bim Nha-kamura</p>
+            <p>Wáng Zhăng Li</p>
+            <p>Virginia Paixão de Oliveira</p>
+          </div>
+        </article>
+
+        <article class="voo-card conexao-card">
+          <div class="card-topo">
+            <span class="voo-numero">CONEXÃO 03</span>
+            <span class="status">2 TRECHOS</span>
+          </div>
+          <h4>Barra Mansa - RJ</h4>
+          <p class="aeroporto">Aeroporto Santos Dumont (SDU)</p>
+          <div class="horarios">
+            <div><span>IDA</span><strong>11h25 → 16h45</strong></div>
+            <div><span>VOLTA</span><strong>17h25 → 22h20</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 4.769,00</strong></div>
+          </div>
+          <div class="trajeto"><span>RIO DE JANEIRO</span><b>→</b><span>GUARULHOS</span><b>→</b><span>BELÉM</span></div>
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Weslenet Arteus Marigua</p>
+          </div>
+        </article>
+
+        <article class="voo-card conexao-card">
+          <div class="card-topo">
+            <span class="voo-numero">CONEXÃO 04</span>
+            <span class="status">2 TRECHOS</span>
+          </div>
+          <h4>Chapecó - SC</h4>
+          <p class="aeroporto">Aeroporto de Chapecó – Serafim Enoss Bertaso (XAP)</p>
+          <div class="horarios">
+            <div><span>IDA</span><strong>11h00 → 17h00</strong></div>
+            <div><span>VOLTA</span><strong>17h10 → 23h30</strong></div>
+            <div><span>PASSAGENS</span><strong>R$ 3.341,00</strong></div>
+          </div>
+          <div class="trajeto"><span>CHAPECÓ</span><b>→</b><span>GUARULHOS</span><b>→</b><span>BELÉM</span></div>
+          <div class="passageiros">
+            <span class="mini-titulo">DIRETORES</span>
+            <p>Anita Martins e Sampaio</p>
+          </div>
+        </article>
+      </section>
+    </aside>
+  </section>
+
+  <footer class="rodape">
+    <span>D&D MARISCO</span>
+    <span>VISITA TÉCNICA · BRAGANÇA — PA</span>
+    <span>23–26 NOV 2026</span>
+  </footer>
+</main>
+</body>
+</html>

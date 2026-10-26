@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos Turisticos | D&D Marisco</title>
+
+    <!-- Arquivo de estilos desta página -->
+    <link rel="stylesheet" href="turismo.css">
+
+    <!-- Fonte usada na página de logística aérea -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="slide">
+
+        <!-- NAVEGAÇÃO ENTRE AS PÁGINAS -->
+        <nav class="navegacao-paginas" aria-label="Navegação entre páginas">
+''
+            <!-- Volta para a página do mapa -->
+            <a href="hospedagem.html" class="botao-navegacao">
+                <span class="seta">←</span>
+                ANTERIOR
+            </a>
+
+            <!-- Número desta página -->
+            <span class="numero-pagina">4</span>
+
+            <!-- Avança para a página financeira -->
+            <a href="financeiro.html" class="botao-navegacao botao-proximo">
+                PRÓXIMA
+                <span class="seta">→</span>
+            </a>
+
+        </nav>
+
+        <!-- CABEÇALHO -->
+        <header class="topo">
+            <div>
+                <p class="sobretitulo">D&D MARISCO · VISITA TÉCNICA</p>
+                <h1>EVENTOS <span>TURISTICOS</span></h1>
+                <p class="subtitulo">
+                    Planejamento de turismo e deslocamento
+                </p>
+            </div>
+
+            <div class="destino">
+                <span class="destino-label">DESTINO DA VISITA</span>
+                <strong>BRAGANÇA <small>PA</small></strong>
+                <span class="destino-aeroporto">Período: 26 de novembro de 2026</span>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <section class="conteudo">
+
+            <!-- PAINEL DE HOSPEDAGEM -->
+            <section class="painel">
+                <div class="painel-cabecalho">
+                    <div>
+                        <span class="numero-secao">01</span>
+                        <h2>INFORMAÇÕES DO EVENTO</h2>
+                    </div>
+                    <span class="tag">EVENTO</span>
+                </div>
+
+                <!-- Informações que podem ser preenchidas -->
+                <div class="informacoes">
+                    <div class="informacao-destaque">
+                        <span class="mini-titulo">EVENTO SELECIONADO</span>
+                        <h3> Associação dos Agricultores e Aquicultores de Nova Olinda – AGROMAR</h3>
+                        <p>Nova Olinda — PA</p>
+                    </div>
+
+                    <div class="detalhes">
+                        <div class="detalhe">
+                            <span>ENDEREÇO</span>
+                            <strong>Rua 13 de Maio, nº 240 - PARÁ</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>IDA</span>
+                            <strong>26/11 <i>→</i> 08h00 ás 09h00</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>VOLTA</span>
+                            <strong>26/11 <i>→</i> 11h00 ás 12h00</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>TEMPO</span>
+                            <strong>Em média 2 horas de visita </strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CARROSSEL DE FOTOS DO HOTEL -->
+                <div class="carrossel-bloco">
+                    <div class="carrossel-titulo">
+                        
+                        
+                    </div>
+
+                    <div class="carrossel" data-carrossel>
+                        <div class="carrossel-imagens">
+
+                            <!-- Troque os nomes pelos arquivos reais das fotos -->
+                            <img src="img/agro1.jpg"
+                                 alt="Fachada do evento"
+                                 class="imagem-carrossel ativa">
+
+                            <img src="img/agro2.jpg"
+                                 alt="Interior do evento"
+                                 class="imagem-carrossel ativa">
+
+                            <img src="img/agro3.jpg"
+                                 alt="Área interna do evento"
+                                 class="imagem-carrossel">
+
+                            <img src="img/agro4.jpg"
+                                 alt="Área externa do evento"
+                                 class="imagem-carrossel">
+
+                                 <img src="img/agro5.JPG"
+                                 alt="Área externa do evento"
+                                 class="imagem-carrossel">
+
+                        </div>
+
+                        <!-- Botões para mudar as fotos -->
+                        <button class="seta-carrossel anterior"
+                                type="button"
+                                aria-label="Foto anterior">‹</button>
+
+                        <button class="seta-carrossel proxima"
+                                type="button"
+                                aria-label="Próxima foto">›</button>
+
+                        <!-- Indicadores da foto atual -->
+                        <div class="indicadores">
+                            <button class="indicador ativo" type="button" aria-label="Mostrar foto 1"></button>
+                            <button class="indicador" type="button" aria-label="Mostrar foto 2"></button>
+                            <button class="indicador" type="button" aria-label="Mostrar foto 3"></button>
+                        </div>
+
+                        <span class="contador">1 / 4</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAINEL DE TRANSPORTE -->
+            <section class="painel painel-transporte">
+                <div class="painel-cabecalho">
+                    <div>
+                        <span class="numero-secao">02</span>
+                        <h2>INFORMAÇÕES DO EVENTO</h2>
+                    </div>
+                    <span class="tag tag-ciano">DESLOCAMENTO</span>
+                </div>
+
+                <!-- Informações do transporte -->
+                <div class="informacoes">
+                    <div class="informacao-destaque transporte-destaque">
+                        <span class="mini-titulo">RESTAURANTE</span>
+                        <h3>Orla de Bragança - RESTAURANTE BENQUERENÇA</h3>
+                        <p>Bragança - PA</p>
+                    </div>
+
+                    <div class="detalhes">
+                        <div class="detalhe">
+                            <span>ENDEREÇO</span>
+                            <strong>Av. Visc. do R. Branco, 1004 - PARÁ</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>IDA</span>
+                            <strong>26/11 <i>→</i> 12h00 ás 13h00</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>RETORNO AEROPORTO</span>
+                            <strong>26/11 <i>→</i> 13h00 ás 16h00</strong>
+                        </div>
+
+                        <div class="detalhe">
+                            <span>ALMOÇO</span>
+                            <strong>Em média: R$ 2.000,00</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CARROSSEL DE FOTOS DO TRANSPORTE -->
+                <div class="carrossel-bloco">
+                    <div class="carrossel-titulo">
+                     
+                    </div>
+
+                    <div class="carrossel" data-carrossel>
+                        <div class="carrossel-imagens">
+
+                            <!-- Troque os nomes pelos arquivos reais das fotos -->
+                            <img src="img/rest1.png"
+                                 alt="Veículo de transporte"
+                                 class="imagem-carrossel ativa">
+
+                            <img src="img/rest2.JPG"
+                                 alt="Interior do veículo"
+                                 class="imagem-carrossel">
+
+                            <img src="img/rest3.png"
+                                 alt="Veículo utilizado no deslocamento"
+                                 class="imagem-carrossel">
+
+                                 <img src="img/rest4.jpg"
+                                 alt="cartao"
+                                 class="imagem-carrossel">
+
+                        </div>
+
+                        <!-- Botões para mudar as fotos -->
+                        <button class="seta-carrossel anterior"
+                                type="button"
+                                aria-label="Foto anterior">‹</button>
+
+                        <button class="seta-carrossel proxima"
+                                type="button"
+                                aria-label="Próxima foto">›</button>
+
+                        <!-- Indicadores da foto atual -->
+                        <div class="indicadores">
+                            <button class="indicador ativo" type="button" aria-label="Mostrar foto 1"></button>
+                            <button class="indicador" type="button" aria-label="Mostrar foto 2"></button>
+                            <button class="indicador" type="button" aria-label="Mostrar foto 3"></button>
+                        </div>
+
+                        <span class="contador">1 / 4</span>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer class="rodape">
+            <span>D&D MARISCO</span>
+            <span>VISITA TÉCNICA · BRAGANÇA — PA</span>
+            <span>23–26 NOV 2026</span>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPT PARA FAZER OS DOIS CARROSSÉIS FUNCIONAREM -->
+    <script>
+        // Encontra cada carrossel separadamente na página.
+        // Assim, trocar uma foto não altera o outro carrossel.
+        document.querySelectorAll("[data-carrossel]").forEach((carrossel) => {
+            const imagens = carrossel.querySelectorAll(".imagem-carrossel");
+            const indicadores = carrossel.querySelectorAll(".indicador");
+            const contador = carrossel.querySelector(".contador");
+
+            let atual = 0;
+
+            // Mostra a foto escolhida e atualiza os indicadores.
+            function mostrarFoto(indice) {
+                atual = (indice + imagens.length) % imagens.length;
+
+                imagens.forEach((imagem, i) => {
+                    imagem.classList.toggle("ativa", i === atual);
+                });
+
+                indicadores.forEach((indicador, i) => {
+                    indicador.classList.toggle("ativo", i === atual);
+                });
+
+                contador.textContent = (atual + 1) + " / " + imagens.length;
+            }
+
+            // Botão para voltar uma foto.
+            carrossel.querySelector(".anterior").addEventListener("click", () => {
+                mostrarFoto(atual - 1);
+            });
+
+            // Botão para avançar uma foto.
+            carrossel.querySelector(".proxima").addEventListener("click", () => {
+                mostrarFoto(atual + 1);
+            });
+
+            // Permite clicar diretamente nos indicadores.
+            indicadores.forEach((indicador, i) => {
+                indicador.addEventListener("click", () => {
+                    mostrarFoto(i);
+                });
+            });
+
+            // Começa mostrando a primeira foto.
+            mostrarFoto(0);
+        });
+    </script>
+</body>
+</html>

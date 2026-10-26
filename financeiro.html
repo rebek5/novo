@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071321">
+
+    <title>D&D Marisco | Planejamento Financeiro</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS separado -->
+    <link rel="stylesheet" href="financeiro.css">
+
+    <!-- Biblioteca dos gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<main class="dashboard">
+
+    <!-- CABEÇALHO -->
+    <header class="topbar">
+
+        <a href="index.html" class="brand">
+            D<span>&amp;</span>D
+            <small>MARISCO</small>
+        </a>
+
+        <nav class="page-navigation" aria-label="Navegação entre páginas">
+            <a href="turismo.html" class="page-button">
+                <span>←</span> Anterior
+            </a>
+
+            <span class="page-number">05</span>
+
+            <a href="index.html" class="page-button">
+                Próxima <span>→</span>
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- TÍTULO -->
+    <section class="heading">
+
+        <div>
+            <p class="eyebrow">05 / ANÁLISE FINANCEIRA</p>
+
+            <h1>Controle do <span>orçamento.</span></h1>
+
+            <p class="subtitle">
+                Planejamento financeiro da visita técnica a Bragança/PA,
+                de 23 a 26 de novembro de 2026.
+            </p>
+        </div>
+
+        <div class="status">CONTROLE FINANCEIRO</div>
+
+    </section>
+
+    <!-- INDICADORES -->
+    <section class="kpi-grid">
+
+        <article class="kpi">
+            <p class="kpi-label">Orçamento total</p>
+            <p class="kpi-value" id="budgetKpi">R$ 100.000,00</p>
+            <p class="kpi-note">Valor total disponível</p>
+        </article>
+
+        <article class="kpi">
+            <p class="kpi-label">Total gasto informado</p>
+            <p class="kpi-value" id="totalKpi">R$ 66.377,51</p>
+            <p class="kpi-note">
+                <span class="highlight" id="usedKpi">66,4%</span>
+                do orçamento total
+            </p>
+        </article>
+
+        <article class="kpi">
+            <p class="kpi-label">Estimativa de gastos</p>
+            <p class="kpi-value" id="estimateKpi">R$ 70.000,00</p>
+            <p class="kpi-note">Previsão média para o projeto</p>
+        </article>
+
+        <article class="kpi">
+            <p class="kpi-label">Saldo do orçamento</p>
+            <p class="kpi-value positive" id="balanceKpi">R$ 30.000,00</p>
+            <p class="kpi-note">Após a estimativa de gastos</p>
+        </article>
+
+    </section>
+
+    <!-- GRÁFICOS -->
+    <section class="analytics">
+
+        <!-- GRÁFICO DE ROSCA -->
+        <article class="panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h2>Composição dos gastos</h2>
+                    <p>Participação de cada categoria no total informado.</p>
+                </div>
+
+                <span class="panel-tag">01 / CUSTOS</span>
+            </div>
+
+            <div class="donut-wrap">
+                <canvas id="donutChart"></canvas>
+
+                <div class="donut-center">
+                    <span>Total gasto</span>
+                    <strong id="donutTotal">R$ 66,4 mil</strong>
+                </div>
+            </div>
+
+            <div class="legend-list" id="legendList"></div>
+
+        </article>
+
+        <!-- GRÁFICO DE BARRAS -->
+        <article class="panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h2>Despesas por categoria</h2>
+                    <p>Comparação dos valores gastos.</p>
+                </div>
+
+                <span class="panel-tag">02 / VALORES</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- ORÇAMENTO -->
+    <section class="budget-panel">
+
+        <div class="budget-header">
+            <div>
+                <h2>Utilização do orçamento</h2>
+                <p>Comparação dos gastos informados com o limite disponível.</p>
+            </div>
+
+            <div class="budget-percentage" id="budgetPercent">66,4%</div>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="budget-footer">
+            <span>
+                Gasto informado:
+                <strong id="spentLabel">R$ 66.377,51</strong>
+            </span>
+
+            <span>
+                Orçamento:
+                <strong id="limitLabel">R$ 100.000,00</strong>
+            </span>
+
+            <span>
+                Saldo após estimativa:
+                <strong id="remainingLabel">R$ 30.000,00</strong>
+            </span>
+        </div>
+
+    </section>
+
+    <!-- TABELA -->
+    <section class="table-panel">
+
+        <div class="table-tools">
+            <h2>Detalhamento financeiro</h2>
+
+            <select id="filterCategory" aria-label="Filtrar despesas">
+                <option value="Todas">Todas as despesas</option>
+                <option value="Uber">Uber</option>
+                <option value="Passagens">Passagens</option>
+                <option value="Bagagens">Bagagens</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Transporte alugado">Transporte alugado</option>
+                <option value="Cartão alimentação">Cartão alimentação</option>
+                <option value="Vale-presente">Vale-presente</option>
+            </select>
+        </div>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CATEGORIA</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>VALOR</th>
+                        <th>% DOS GASTOS</th>
+                        <th>SITUAÇÃO</th>
+                    </tr>
+                </thead>
+
+                <tbody id="expenseTable"></tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><strong>TOTAL GASTO INFORMADO</strong></td>
+                        <td class="money" id="tableTotal">R$ 66.377,51</td>
+                        <td id="tablePercent">100%</td>
+                        <td><span class="type realizado">Informado</span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><strong>ESTIMATIVA DE GASTOS</strong></td>
+                        <td class="money" id="tableEstimate">R$ 70.000,00</td>
+                        <td id="estimatePercent">70%</td>
+                        <td><span class="type estimado">Estimativa</span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><strong>ORÇAMENTO TOTAL</strong></td>
+                        <td class="money" id="tableBudget">R$ 100.000,00</td>
+                        <td>100%</td>
+                        <td><span class="type realizado">Disponível</span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><strong>SALDO APÓS ESTIMATIVA</strong></td>
+                        <td class="money positive" id="tableBalance">R$ 30.000,00</td>
+                        <td id="balancePercent">30%</td>
+                        <td><span class="type reserva">Saldo</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <p class="bottom-note">
+            O orçamento total é de R$ 100.000,00. Os gastos informados somam
+            R$ 66.377,51 e a estimativa de gastos é de R$ 70.000,00.
+            O saldo estimado após os gastos é de R$ 30.000,00.
+        </p>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <span>D&amp;D MARISCO</span>
+        <span>PLANEJAMENTO LOGÍSTICO · 2026</span>
+        <span>BRAGANÇA / PA</span>
+    </footer>
+
+</main>
+
+<script>
+    // =====================================
+    // 1. CONFIGURAÇÕES FINANCEIRAS
+    // =====================================
+
+    const budget = 100000;
+    const estimatedExpenses = 70000;
+    const participants = 10;
+
+    // =====================================
+    // 2. GASTOS INFORMADOS
+    // =====================================
+
+    const expenses = [
+        {
+            category: "Uber",
+            detail: "Deslocamentos por aplicativo",
+            value: 1400.00
+        },
+        {
+            category: "Passagens",
+            detail: "Passagens aéreas",
+            value: 25101.86
+        },
+        {
+            category: "Bagagens",
+            detail: "Custos com bagagens",
+            value: 13160.00
+        },
+        {
+            category: "Hotel",
+            detail: "Hospedagem",
+            value: 10120.00
+        },
+        {
+            category: "Transporte alugado",
+            detail: "Transporte fretado ou alugado",
+            value: 5295.65
+        },
+        {
+            category: "Cartão alimentação",
+            detail: "Créditos para alimentação",
+            value: 9300.00
+        },
+        {
+            category: "Vale-presente",
+            detail: "Vales-presente",
+            value: 2000.00
+        }
+    ];
+
+    // =====================================
+    // 3. CORES
+    // =====================================
+
+    const colors = [
+        "#54d4ff",
+        "#328bff",
+        "#8a7dff",
+        "#e8bb67",
+        "#5dd6ad",
+        "#ff8f70",
+        "#b58aff"
+    ];
+
+    // =====================================
+    // 4. FORMATAÇÃO
+    // =====================================
+
+    const money = value =>
+        value.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+
+    const percent = value =>
+        value.toLocaleString("pt-BR", {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1
+        }) + "%";
+
+    const compactMoney = value =>
+        "R$ " +
+        (value / 1000).toLocaleString("pt-BR", {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1
+        }) +
+        " mil";
+
+    // =====================================
+    // 5. CÁLCULOS
+    // =====================================
+
+    const total = expenses.reduce(
+        (sum, item) => sum + item.value,
+        0
+    );
+
+    const budgetBalance = budget - estimatedExpenses;
+    const usedPercentage = (total / budget) * 100;
+    const estimatePercentage = (estimatedExpenses / budget) * 100;
+    const balancePercentage = (budgetBalance / budget) * 100;
+
+    // =====================================
+    // 6. ATUALIZA INDICADORES
+    // =====================================
+
+    document.getElementById("budgetKpi").textContent =
+        money(budget);
+
+    document.getElementById("totalKpi").textContent =
+        money(total);
+
+    document.getElementById("estimateKpi").textContent =
+        money(estimatedExpenses);
+
+    document.getElementById("balanceKpi").textContent =
+        money(budgetBalance);
+
+    document.getElementById("usedKpi").textContent =
+        percent(usedPercentage);
+
+    document.getElementById("donutTotal").textContent =
+        compactMoney(total);
+
+    document.getElementById("budgetPercent").textContent =
+        percent(usedPercentage);
+
+    document.getElementById("spentLabel").textContent =
+        money(total);
+
+    document.getElementById("limitLabel").textContent =
+        money(budget);
+
+    document.getElementById("remainingLabel").textContent =
+        money(budgetBalance);
+
+    document.getElementById("tableTotal").textContent =
+        money(total);
+
+    document.getElementById("tableEstimate").textContent =
+        money(estimatedExpenses);
+
+    document.getElementById("tableBudget").textContent =
+        money(budget);
+
+    document.getElementById("tableBalance").textContent =
+        money(budgetBalance);
+
+    document.getElementById("tablePercent").textContent =
+        "100%";
+
+    document.getElementById("estimatePercent").textContent =
+        percent(estimatePercentage);
+
+    document.getElementById("balancePercent").textContent =
+        percent(balancePercentage);
+
+    // Barra mostra os gastos informados sobre o orçamento total.
+    document.getElementById("progressBar").style.width =
+        Math.min(usedPercentage, 100) + "%";
+
+    // =====================================
+    // 7. GRÁFICO DE ROSCA
+    // =====================================
+
+    new Chart(document.getElementById("donutChart"), {
+        type: "doughnut",
+
+        data: {
+            labels: expenses.map(item => item.category),
+
+            datasets: [{
+                data: expenses.map(item => item.value),
+                backgroundColor: colors,
+                borderColor: "#0b1a2b",
+                borderWidth: 4,
+                hoverOffset: 7
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "76%",
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label: context => {
+                            const share =
+                                (context.raw / total) * 100;
+
+                            return context.label + ": " +
+                                money(context.raw) + " (" +
+                                percent(share) + ")";
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // =====================================
+    // 8. LEGENDA
+    // =====================================
+
+    document.getElementById("legendList").innerHTML =
+        expenses.map((item, index) => `
+            <div class="legend-item">
+                <span class="legend-dot"
+                      style="background:${colors[index]}"></span>
+
+                <span>${item.category}</span>
+
+                <strong>
+                    ${percent((item.value / total) * 100)}
+                </strong>
+            </div>
+        `).join("");
+
+    // =====================================
+    // 9. GRÁFICO DE BARRAS
+    // =====================================
+
+    new Chart(document.getElementById("barChart"), {
+        type: "bar",
+
+        data: {
+            labels: expenses.map(item => item.category),
+
+            datasets: [{
+                label: "Valor gasto",
+                data: expenses.map(item => item.value),
+                backgroundColor: colors,
+                borderRadius: 4,
+                borderSkipped: false,
+                barThickness: 19
+            }]
+        },
+
+        options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label: context => money(context.raw)
+                    }
+                }
+            },
+
+            scales: {
+                x: {
+                    beginAtZero: true,
+
+                    grid: {
+                        color: "rgba(143,178,209,0.09)"
+                    },
+
+                    ticks: {
+                        color: "#8799ae",
+                        font: {
+                            size: 9
+                        },
+
+                        callback: value =>
+                            "R$ " +
+                            (value / 1000).toLocaleString("pt-BR") +
+                            " mil"
+                    },
+
+                    border: {
+                        display: false
+                    }
+                },
+
+                y: {
+                    grid: {
+                        display: false
+                    },
+
+                    ticks: {
+                        color: "#c7d3e0",
+                        font: {
+                            size: 10
+                        }
+                    },
+
+                    border: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+
+    // =====================================
+    // 10. TABELA E FILTRO
+    // =====================================
+
+    const tableBody = document.getElementById("expenseTable");
+    const filter = document.getElementById("filterCategory");
+
+    function renderTable(category = "Todas") {
+
+        const filtered = category === "Todas"
+            ? expenses
+            : expenses.filter(
+                item => item.category === category
+            );
+
+        tableBody.innerHTML = filtered.map(item => {
+            const share = (item.value / total) * 100;
+
+            return `
+                <tr>
+                    <td>
+                        <div class="expense-name">
+                            ${item.category}
+                        </div>
+                    </td>
+
+                    <td>${item.detail}</td>
+
+                    <td class="money">${money(item.value)}</td>
+
+                    <td>${percent(share)}</td>
+
+                    <td>
+                        <span class="type realizado">
+                            Informado
+                        </span>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+
+        const filteredTotal = filtered.reduce(
+            (sum, item) => sum + item.value,
+            0
+        );
+
+        document.getElementById("tableTotal").textContent =
+            money(filteredTotal);
+
+        document.getElementById("tablePercent").textContent =
+            percent((filteredTotal / total) * 100);
+    }
+
+    filter.addEventListener("change", () => {
+        renderTable(filter.value);
+    });
+
+    renderTable();
+</script>
+
+</body>
+</html>
